@@ -20,7 +20,7 @@ function App() {
           we already started. We cannot stop~~
 
         </a>
-        <button> 오늘의 마지막 작업 버튼</button>
+        <button> 오늘의 마지막 작업 버튼 123</button>
       </header>
     </div>
   );
