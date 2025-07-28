@@ -17,10 +17,10 @@ function App() {
         >
           Learn Sex
 
-          we already started. We cannot stop!!!!!
+          we already started. We cannot stop~~
 
-          How can we treat this problem??!
         </a>
+        <button> 오늘의 마지막 작업 버튼</button>
       </header>
     </div>
   );
