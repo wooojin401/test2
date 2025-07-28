@@ -17,9 +17,7 @@ function App() {
         >
           Learn Sex
 
-          we already started. We cannot stop!!!!!
-
-          How can we treat this problem??!
+          we already started. We cannot stop~~
         </a>
       </header>
     </div>
