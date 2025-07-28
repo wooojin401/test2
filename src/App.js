@@ -15,7 +15,9 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          ㅎㅇ
+          Learn Sex
+
+          we already started. We cannot stop!!!!!
         </a>
       </header>
     </div>
