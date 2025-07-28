@@ -17,7 +17,7 @@ function App() {
         >
           Learn Sex
 
-          we already started. We cannot stop!!!!!
+          we already started. We cannot stop~~
         </a>
       </header>
     </div>
