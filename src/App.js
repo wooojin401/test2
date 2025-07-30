@@ -1,28 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Write from "./pages/Write";
+import Detail from "./pages/Detail";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Sex
-
-          we already started. We cannot stop~~
-
-        </a>
-        <button> 오늘의 마지막 작업 버튼 13</button>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/write" element={<Write />} />
+        <Route path="/post/:id" element={<Detail />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
