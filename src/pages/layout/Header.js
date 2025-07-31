@@ -5,12 +5,12 @@ const Header = () => {
   return (
     <header className="Header">
       <div className="header_left">
-        <h1>Header</h1>
+        <h1>모두의 코딩</h1>
       </div>
       <div className="header_right">
-        <Link to="/">홈으로</Link>
+        <Link to="/">Home</Link>
         <span className="divider">|</span>
-        <Link to="/write">글쓰기</Link>
+        <Link to="/About">About</Link>
       </div>
     </header>
   );
