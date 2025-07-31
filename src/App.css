@@ -1,8 +1,14 @@
-
 .content {
+  flex: 1;
   padding-top: 60px;
   padding-bottom: 40px;
   max-width: 1200px;
   margin: 0 auto;
   box-sizing: border-box;
 }
+
+.main_layout {
+  display: flex;
+  min-height: calc(100vh - 100px); /* 헤더+푸터 제외 */
+}
+

@@ -1,4 +1,3 @@
-// App.js
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -7,27 +6,29 @@ import Detail from "./pages/Detail";
 import Edit from "./pages/Edit";
 import Header from "./pages/layout/Header";
 import Footer from "./pages/layout/Footer";
-
-import './App.css'; 
+import Sidebar from "./pages/layout/Sidebar"; // ✅ 추가
 import About from "./pages/About";
+import './App.css'; 
+
 function App() {
   return (
     <BrowserRouter>
       <Header />
-
-      <div className="content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/write" element={<Write />} />
-          <Route path="/About" element={<About />} />
-          <Route path="/post/:id" element={<Detail />} />
-        </Routes>
+      <div className="main_layout">
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/write" element={<Write />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/post/:id" element={<Detail />} />
+            <Route path="/edit/:id" element={<Edit />} />
+          </Routes>
+        </div>
       </div>
 
       <Footer />
     </BrowserRouter>
   );
 }
-
 
 export default App;
