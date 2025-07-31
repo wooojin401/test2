@@ -7,9 +7,8 @@ function Home(){
     
     return(
         <div>
-        <h4>모두의 코딩</h4>
-        <button onClick={() => navigate('/write')}>글쓰기</button>
-        <button onClick={() => navigate('/edit')}> 수정하기</button>
+        <h4>모두의 코딩 홈페이지-미구현상태-</h4>
+        <button onClick={() => navigate('/write')}>글쓰기페이지로 이동</button>
         
         </div>
          
