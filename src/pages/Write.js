@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Write() {
+  const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('default');
-
   const handleSubmit = (e) => {
     e.preventDefault(); // 폼 기본 동작 막기
     console.log('제목:', title);
@@ -12,9 +13,12 @@ function Write() {
     console.log('카테고리:', category);
     // 여기서 API 호출 등 구현 예정
   };
-
+  
   return (
+   
     <div style={{ padding: '20px' }}>
+      <h2>뒤로 가기</h2>
+      <button onClick={() => navigate(-1)} style={{ marginBottom: '20px' }}>뒤로가기</button>
       <h2>글 작성</h2>
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: '10px' }}>
@@ -58,6 +62,8 @@ function Write() {
         <button type="submit" style={{ padding: '10px 20px' }}>
           등록
         </button>
+        
+        
       </form>
     </div>
   );
