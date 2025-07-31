@@ -17,3 +17,21 @@
   align-items: center;
   padding-left: 20px;
 }
+.header_right {
+  flex: 1;
+  
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+.header_right a:visited {
+  color: skyblue;
+}
+
+.header_right a:hover {
+  color: skyblue; /* 선택사항: 마우스 올렸을 때 색 */
+}
+
+.header_right a:active {
+  color: skyblue;
+}

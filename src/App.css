@@ -1,8 +1,8 @@
-.app {
-  padding-top: 60px; /* Header 높이만큼 패딩 추가 */
-  padding-bottom: 40px; /* Footer 높이만큼 패딩 추가 */
-}
 
 .content {
-  padding: 20px;
+  padding-top: 60px;
+  padding-bottom: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
