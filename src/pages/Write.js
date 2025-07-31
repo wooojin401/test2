@@ -7,10 +7,7 @@ function Write() {
 
   const handleSubmit = (e) => {
     e.preventDefault(); // 폼 기본 동작 막기
-    console.log('제목:', title);
-    console.log('내용:', content);
-    console.log('카테고리:', category);
-    // 여기서 API 호출 등 구현 예정
+    
   };
 
   return (
