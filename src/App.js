@@ -6,8 +6,10 @@ import Detail from "./pages/Detail";
 import Edit from "./pages/Edit";
 import Header from "./pages/layout/Header";
 import Footer from "./pages/layout/Footer";
-import Sidebar from "./pages/layout/Sidebar"; // ✅ 추가
+import Sidebar from "./pages/layout/Sidebar";
+import CodePage from "./pages/code_function/CodePage";
 import './App.css'; 
+
 
 function App() {
   
@@ -40,6 +42,7 @@ function App() {
             <Route path="/write" element={<Write />} />
             <Route path="/post/:id" element={<Detail />} />
             <Route path="/edit/:id" element={<Edit />} />
+            <Route path="/CodePage" element={<CodePage />} />
           </Routes>
         </div>
       </div>

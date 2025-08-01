@@ -19,9 +19,9 @@ const Sidebar = ({ isOpen, onClose }) => {
         >
           <span className="dropdown-title">코드별 리뷰</span>
           <ul className={`dropdown-menu ${hoveredCode ? 'show' : ''}`}>
-            <li><a href="/">C++</a></li>
-            <li><a href="/">Python</a></li>
-            <li><a href="/">Java</a></li>
+            <li><a href="/CodePage">C++</a></li>
+            <li><a href="/CodePage">Python</a></li>
+            <li><a href="/CodePage">Java</a></li>
           </ul>
         </li>
 
