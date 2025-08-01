@@ -7,7 +7,6 @@ import Edit from "./pages/Edit";
 import Header from "./pages/layout/Header";
 import Footer from "./pages/layout/Footer";
 import Sidebar from "./pages/layout/Sidebar"; // ✅ 추가
-import About from "./pages/About";
 import './App.css'; 
 
 function App() {
@@ -19,7 +18,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/write" element={<Write />} />
-            <Route path="/about" element={<About />} />
             <Route path="/post/:id" element={<Detail />} />
             <Route path="/edit/:id" element={<Edit />} />
           </Routes>
