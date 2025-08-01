@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Write from "./pages/Write";
@@ -10,13 +10,33 @@ import Sidebar from "./pages/layout/Sidebar"; // ✅ 추가
 import './App.css'; 
 
 function App() {
+  
+   const aboutRef = useRef(null);
+   const howUseRef = useRef(null);
+   const whyUseRef = useRef(null);
+
+   const scrollIntoWhy = () => {
+    if (whyUseRef.current){
+      whyUseRef.current.scrollIntoView({behavior: 'smooth'});
+    }
+   }
+  const scrollIntoUse = () => {
+    if (howUseRef.current) {
+      howUseRef.current.scrollIntoView({behavior: 'smooth'});
+    }
+  };
+  const scrollIntoView = () => {
+    if (aboutRef.current) {
+      aboutRef.current.scrollIntoView({behavior: 'smooth'});
+    }
+  };
   return (
     <BrowserRouter>
-      <Header />
+      <Header scrollIntoView = {scrollIntoView} scrollIntoUse = {scrollIntoUse} scrollIntoWhy = {scrollIntoWhy} />
       <div className="main_layout">
         <div className="content">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home aboutRef = {aboutRef} howUseRef = {howUseRef} whyUseRef={whyUseRef} />} />
             <Route path="/write" element={<Write />} />
             <Route path="/post/:id" element={<Detail />} />
             <Route path="/edit/:id" element={<Edit />} />

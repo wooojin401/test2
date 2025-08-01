@@ -13,7 +13,11 @@
     padding-right: 66%;
 }
     
-    
+#usCoding{
+    font-weight: bold; 
+    font-size: 1.5rem; 
+    color: rgba(42, 229, 9, 0.83)
+}    
 
 .about-container{
     display: flex;
@@ -21,4 +25,13 @@
     align-items: center;
     flex-direction: column;
     background-color: rgba(177, 168, 128, 0.343);
+}
+.why-use {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    width: 60%;
+    height: 60%;
 }

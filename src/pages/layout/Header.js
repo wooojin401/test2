@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import './Header.css';
 
-const Header = () => {
+const Header = ({scrollIntoView, scrollIntoUse, scrollIntoWhy}) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+ 
 
   return (
     <>
@@ -16,9 +17,9 @@ const Header = () => {
           </h1>
         </div>
         <div className="header_center">
-          <Link to="/" className="intro-link"> <span className="highlight">I</span>ntroduction</Link>
-          <Link to="/" className="intro-link"> <span className="highlight">H</span>ow to use?</Link>
-          <Link to="/" className="intro-link"> <span className="highlight">W</span>hy to use?</Link>
+          <Link to="/" className="intro-link" onClick = {scrollIntoView}> <span className="highlight">I</span>ntroduction</Link>
+          <Link to="/" className="intro-link" onClick = {scrollIntoUse}> <span className="highlight">H</span>ow to use?</Link>
+          <Link to="/" className="intro-link" onClick={scrollIntoWhy}> <span className="highlight">W</span>hy to use?</Link>
         </div>
         <div className="header_right">
           <Link to="/">Home</Link>
