@@ -8,7 +8,7 @@ import Header from "./pages/layout/Header";
 import Footer from "./pages/layout/Footer";
 import Sidebar from "./pages/layout/Sidebar"; // ✅ 추가
 import './App.css'; 
-
+import Login from "./pages/Login";
 
 function App() {
   return (
