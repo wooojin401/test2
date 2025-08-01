@@ -7,13 +7,24 @@ import Edit from "./pages/Edit";
 import Header from "./pages/layout/Header";
 import Footer from "./pages/layout/Footer";
 import Sidebar from "./pages/layout/Sidebar"; // ✅ 추가
-import About from "./pages/About";
 import './App.css'; 
 
 function App() {
   
    const aboutRef = useRef(null);
+   const howUseRef = useRef(null);
+   const whyUseRef = useRef(null);
 
+   const scrollIntoWhy = () => {
+    if (whyUseRef.current){
+      whyUseRef.current.scrollIntoView({behavior: 'smooth'});
+    }
+   }
+  const scrollIntoUse = () => {
+    if (howUseRef.current) {
+      howUseRef.current.scrollIntoView({behavior: 'smooth'});
+    }
+  };
   const scrollIntoView = () => {
     if (aboutRef.current) {
       aboutRef.current.scrollIntoView({behavior: 'smooth'});
@@ -21,13 +32,12 @@ function App() {
   };
   return (
     <BrowserRouter>
-      <Header scrollIntoView = {scrollIntoView} />
+      <Header scrollIntoView = {scrollIntoView} scrollIntoUse = {scrollIntoUse} scrollIntoWhy = {scrollIntoWhy} />
       <div className="main_layout">
         <div className="content">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home aboutRef = {aboutRef} howUseRef = {howUseRef} whyUseRef={whyUseRef} />} />
             <Route path="/write" element={<Write />} />
-            <Route path="/about" element={<About aboutRef = {aboutRef}/>}  />
             <Route path="/post/:id" element={<Detail />} />
             <Route path="/edit/:id" element={<Edit />} />
           </Routes>
