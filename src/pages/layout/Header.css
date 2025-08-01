@@ -10,6 +10,7 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  flex-wrap: nowrap;
 }
 .header_left {
   flex: 1;
@@ -19,11 +20,12 @@
 }
 .header_right {
   flex: 1;
-  
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   padding-right: 20px;
   font-weight: bold;
+  gap: 10px;
 }
 .header_right a:visited {
   color: black;
@@ -84,4 +86,32 @@
 .highlight {
   color:black;
   font-size: 20px; 
+}
+
+.header-login-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+  min-width: fit-content;  /* ✅ or width: auto; */
+}
+
+
+.login-btn,
+.signup-btn {
+  padding: 8px 16px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn {
+  background-color: rgb(13, 176, 240);
+}
+
+.signup-btn {
+  background-color: #4caf50;
 }
