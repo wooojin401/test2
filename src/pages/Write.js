@@ -1,21 +1,34 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { usePrompt } from '../hooks/usePrompt';
 
-import './Write.css'; // 꼭 import 해주세요
+import './Write.css';
 
 function Write() {
   const [title, setTitle] = useState('');
+  const [code, setCode] = useState('');
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('default');
-  
+  const [isDirty, setIsDirty] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // 제출 처리
+    setIsDirty(false);
+    alert('제출 완료!');
   };
-  
+
+  useEffect(() => {
+    setIsDirty(
+      !!title || !!code || !!content || category !== 'default'
+    );
+  }, [title, code, content, category]);
+
+  usePrompt('작성 중인 내용이 사라질 수 있습니다. 정말 이동하시겠습니까?', isDirty);
+
   return (
     <div className="write-container">
       <h2>글 작성</h2>
       <form onSubmit={handleSubmit}>
+        {/* 제목 */}
         <div className="write-form-group">
           <label>제목:</label>
           <input
@@ -26,26 +39,31 @@ function Write() {
             required
           />
         </div>
+
+       
         <div className="write-form-group">
           <label>코드:</label>
           <textarea
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            placeholder="내용을 입력하세요"
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+            placeholder="코드를 입력하세요"
             style={{ width: '100%', height: '300px' }}
             required
           />
         </div>
+
+       
         <div className="write-form-group">
           <label>설명:</label>
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            placeholder="내용을 입력하세요"
+            placeholder="설명을 입력하세요"
             required
           />
         </div>
 
+       
         <div className="write-form-group">
           <label>카테고리:</label>
           <select
@@ -56,10 +74,11 @@ function Write() {
             <option value="C++">C++</option>
             <option value="Java">Java</option>
             <option value="JavaScript">JavaScript</option>
-            <option value="Python">Python</option> {/* 오타 수정 */}
+            <option value="Python">Python</option>
           </select>
         </div>
-        <button className="write-reset-btn" onClick={() => window.history.back()}>
+
+        <button type="reset" className="write-reset-btn" onClick={() => window.history.back()}>
           취소
         </button>
 
@@ -70,4 +89,5 @@ function Write() {
     </div>
   );
 }
+
 export default Write;
