@@ -1,0 +1,78 @@
+.write-container {
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 32px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.write-container h2 {
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+
+.write-form-group {
+  margin-bottom: 20px;
+}
+
+.write-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #444;
+}
+
+.write-form-group input,
+.write-form-group textarea,
+.write-form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  resize: vertical;
+  transition: border-color 0.2s ease;
+}
+
+.write-form-group input:focus,
+.write-form-group textarea:focus,
+.write-form-group select:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+.write-submit-btn {
+  padding: 12px 24px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  float:right;
+  transition: background-color 0.2s ease;
+}
+
+.write-submit-btn:hover {
+  background-color: #43a047;
+}
+.write-reset-btn {
+  padding: 12px 24px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.write-reset-btn:hover {
+  background-color: #43a047;
+}

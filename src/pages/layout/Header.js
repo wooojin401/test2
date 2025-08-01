@@ -23,7 +23,9 @@ const Header = () => {
         <div className="header_right">
           <Link to="/">Home</Link>
           <span className="divider">|</span>
-          <Link to="/About">About</Link>
+          <Link to="/Write">Write</Link>
+
+          
         </div>
       </header>
 
