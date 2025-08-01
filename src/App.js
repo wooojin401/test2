@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Write from "./pages/Write";
@@ -11,6 +11,25 @@ import './App.css';
 import Login from "./pages/Login";
 
 function App() {
+  const aboutRef = useRef(null);
+   const howUseRef = useRef(null);
+   const whyUseRef = useRef(null);
+
+   const scrollIntoWhy = () => {
+    if (whyUseRef.current){
+      whyUseRef.current.scrollIntoView({behavior: 'smooth'});
+    }
+   }
+  const scrollIntoUse = () => {
+    if (howUseRef.current) {
+      howUseRef.current.scrollIntoView({behavior: 'smooth'});
+    }
+  };
+  const scrollIntoView = () => {
+    if (aboutRef.current) {
+      aboutRef.current.scrollIntoView({behavior: 'smooth'});
+    }
+  };
   return (
     <BrowserRouter>
       <Header />
