@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Write from "./pages/Write";
@@ -11,15 +11,23 @@ import About from "./pages/About";
 import './App.css'; 
 
 function App() {
+  
+   const aboutRef = useRef(null);
+
+  const scrollIntoView = () => {
+    if (aboutRef.current) {
+      aboutRef.current.scrollIntoView({behavior: 'smooth'});
+    }
+  };
   return (
     <BrowserRouter>
-      <Header />
+      <Header scrollIntoView = {scrollIntoView} />
       <div className="main_layout">
         <div className="content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/write" element={<Write />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About aboutRef = {aboutRef}/>}  />
             <Route path="/post/:id" element={<Detail />} />
             <Route path="/edit/:id" element={<Edit />} />
           </Routes>
