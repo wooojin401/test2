@@ -22,17 +22,18 @@
 
 .ranking-number {
   font-weight: bold;
+  font-size: 1.7rem;
   margin-right: 10px;
   color: #ff5b5b;
 }
 
 .ranking-title {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.7rem;
 }
 
 .ranking-meta {
   display: block;
-  font-size: 13px;
+  font-size: 1.4rem;
   color: gray;
 }
