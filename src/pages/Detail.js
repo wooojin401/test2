@@ -3,6 +3,7 @@ import './Detail.css';
 
 function Detail() {
   const mockData = {
+    id:1,
     title: '코드 제목 예시',
     author: '작성자',
     date: '2025-08-06',
