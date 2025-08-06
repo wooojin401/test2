@@ -1,6 +1,6 @@
 // src/pages/Detail.js
 import React from 'react';
-import './Detail.css'; // 필요하다면 스타일 파일
+import './Detail.css';
 
 function Detail() {
   const mockData = {

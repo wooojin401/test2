@@ -8,6 +8,7 @@ import Header from "./pages/layout/Header";
 import Footer from "./pages/layout/Footer";
 import Sidebar from "./pages/layout/Sidebar";
 import CodePage from "./pages/code_function/CodePage";
+import LikeRanking from "./pages/LikeRanking";
 
 import './App.css'; 
 import Login from "./pages/Login";
@@ -45,6 +46,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/edit/:id" element={<Edit />} />
             <Route path="/CodePage" element={<CodePage/>}/>
+            <Route path="/LikeRanking" element={<LikeRanking />} />
           </Routes>
         </div>
       </div>
