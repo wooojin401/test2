@@ -33,9 +33,9 @@ const Sidebar = ({ isOpen, onClose }) => {
         >
           <span className="dropdown-title">좋아요 순위</span>
           <ul className={`dropdown-menu ${hoveredRank ? 'show' : ''}`}>
-            <li><a href="/">전체 랭킹</a></li>
-            <li><a href="/">이번 주 랭킹</a></li>
-            <li><a href="/">오늘의 랭킹</a></li>
+            <li><a href="/LikeRanking">전체 랭킹</a></li>
+            <li><a href="/LikeRanking">이번 주 랭킹</a></li>
+            <li><a href="/LikeRanking">오늘의 랭킹</a></li>
           </ul>
         </li>
         <br></br>

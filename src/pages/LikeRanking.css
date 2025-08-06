@@ -1,0 +1,38 @@
+.like-ranking-container {
+  padding: 20px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.ranking-list {
+  list-style: none;
+  padding: 0;
+}
+
+.ranking-item {
+  padding: 12px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.ranking-item:hover {
+  background-color: #f8f8f8;
+}
+
+.ranking-number {
+  font-weight: bold;
+  margin-right: 10px;
+  color: #ff5b5b;
+}
+
+.ranking-title {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.ranking-meta {
+  display: block;
+  font-size: 13px;
+  color: gray;
+}
