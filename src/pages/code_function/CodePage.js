@@ -1,27 +1,50 @@
-import "./CodePage.css";
+import { useState } from "react";
 import CodeItem from "./CodeItem";
-const CodePage = () => {
+import "./CodePage.css";
+const CodeListPage = () => {
+  const [selectedType, setSelectedType] = useState("All");
 
-    return (
-        <div className="code-page-container">
-            <h1>Code page</h1>
-            <label for="codeKind">코드종류</label>
-            <select id="codeKind">
-                <option value="All">All</option>
-                <option value="cpp">C++</option>
-                <option value="python">Python</option>
-                <option value="java">Java</option>
-            </select>
-            <div className="codeSpace">
-                <h2 id = "pageTitle">codeSpace</h2>
-                <div className="code-list">     
-                    {/* 제목, 이미지는 입력받고 날짜 , 작성자는 자동입력되게 구현*/}
-                    <CodeItem image="fifa.JPG" title="code제목"/>
-                    <CodeItem image="logo.png" title="code제목2"/>
-                    <CodeItem image="logo2.png" title="code제목3"/>
-                </div> 
-            </div>
-        </div>
-    );
-}
-export default CodePage;
+  const handleTypeChange = (e) => {
+    setSelectedType(e.target.value);
+  };
+
+
+  const codeItems = [
+    { id: 1, image: "/fifa.JPG", title: "C++ 예제", type: "cpp", likes : 34 },
+    { id: 2, image: "/logo.png", title: "Java 예제", type: "java", likes: 28 },
+    { id: 3, image: "/logo192.png", title: "Python 예제", type: "python", likes: 22 }
+  ];
+
+  // 필터링
+  const filteredItems = selectedType === "All"
+    ? codeItems
+    : codeItems.filter(item => item.type === selectedType);
+
+  return (
+    <div className="codePage">
+        <h1>코드 페이지</h1>
+      <select id="codeKind" onChange={handleTypeChange}>
+        <option value="All">All</option>
+        <option value="cpp">C++</option>
+        <option value="python">Python</option>
+        <option value="java">Java</option>
+      </select>
+
+      {/* 필터링된 항목만 렌더링 */}
+      <div className="codeList">
+        {filteredItems.map(item => (
+          <CodeItem
+            key={item.id}
+            image={item.image}
+            title={item.title}
+            likes={item.likes}
+            type={item.type}
+            onTypeChange={() => {}} // 지금은 필요 없음
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default CodeListPage;

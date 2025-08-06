@@ -29,6 +29,7 @@ const LikeRanking = () => {
         {items.map((item, index) => (
           <li key={item.id} className="ranking-item" onClick={() => handleClick(item.id)}>
             <span className="ranking-number">#{index + 1}</span>
+            <img src = "" alt = "Thumbnail" className="ranking-thumbnail" />
             <span className="ranking-title">{item.title}</span>
             <span className="ranking-meta">
               {item.author} | {item.date} | ❤️ {item.likes}
