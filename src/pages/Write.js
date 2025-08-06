@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { usePrompt } from '../hooks/usePrompt';
+import axios from 'axios';
 
 import './Write.css';
 
@@ -9,12 +10,23 @@ function Write() {
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('default');
   const [isDirty, setIsDirty] = useState(false);
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsDirty(false);
+  try {
+    await axios.post('http://localhost:8080/api/posts', {
+      title,
+      code,
+      content,
+      category,
+    });
     alert('제출 완료!');
-  };
+    setIsDirty(false);
+  } catch (err) {
+    console.error('에러 발생:', err);
+    alert('등록 실패');
+  }
+};
 
   useEffect(() => {
     setIsDirty(
