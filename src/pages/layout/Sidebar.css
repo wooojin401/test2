@@ -86,7 +86,15 @@
   transition: background-color 0.2s ease, color 0.2s ease;
   text-decoration: none;
 }
-
+.dropdown-menu li span{
+  display: block;
+  padding: 6px 10px;
+  font-size: 14px;
+  color: #74b9ff;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+}
 .dropdown-menu li a:hover {
   background-color: #2f2f2f;
   color: #ffffff;

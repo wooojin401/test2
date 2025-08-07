@@ -1,41 +1,44 @@
-import { useState } from 'react';
-import { Link ,useNavigate} from 'react-router-dom';
-import Sidebar from './Sidebar';
-import './Header.css';
+import { Link, useNavigate } from "react-router-dom";
+import Sidebar from "./Sidebar";
+import "./Header.css";
 
-const Header = ({ scrollIntoView, scrollIntoUse, scrollIntoWhy }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+const Header = ({
+  scrollIntoView,
+  scrollIntoUse,
+  scrollIntoWhy,
+  onSidebarOpen,
+  onSidebarClose,
+  isSidebarOpen,
+  onTypeSelect
+}) => {
   const navigate = useNavigate();
-
-
 
   return (
     <>
       <header className="Header">
         <div className="header_left">
-          <button className="menu-btn" onClick={() => setSidebarOpen(true)}>☰</button>
-          <h1>
-            <Link to="/" className="logo-link">UsCoding</Link>
-          </h1>
+          <button className="menu-btn" onClick={onSidebarOpen}>☰</button>
+          <h1><Link to="/" className="logo-link">UsCoding</Link></h1>
         </div>
 
         <div className="header_center">
-          <Link to="/" className="intro-link" onClick={scrollIntoView}><span className="highlight">I</span>ntroduction</Link>
-          <Link to="/" className="intro-link" onClick={scrollIntoUse}><span className="highlight">H</span>ow to use?</Link>
-          <Link to="/" className="intro-link" onClick={scrollIntoWhy}><span className="highlight">W</span>hy to use?</Link>
+          <Link to="/" onClick={scrollIntoView}>Introduction</Link>
+          <Link to="/" onClick={scrollIntoUse}>How to use?</Link>
+          <Link to="/" onClick={scrollIntoWhy}>Why to use?</Link>
         </div>
 
         <div className="header_right">
-        <div className="header-login-container">
-          <button className="login-btn" onClick={() => navigate('./login')}>Login</button>
-          <span className="divider">|</span>
-          <button className="signup-btn" onClick={() => alert('회원가입 기능은 아직 구현되지 않았습니다.')}>Sign Up</button>
-        </div>
+          <button onClick={() => navigate("/login")}>Login</button>
           <Link to="/Write">write</Link>
-          
         </div>
       </header>
-      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+
+      {/* 🔥 isSidebarOpen → isOpen에 꼭 연결! */}
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={onSidebarClose}
+        onTypeSelect={onTypeSelect}
+      />
     </>
   );
 };

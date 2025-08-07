@@ -1,45 +1,34 @@
-import React, { useState } from 'react';
-import './Sidebar.css';
+import React, { useState } from "react";
+import "./Sidebar.css";
 
-const Sidebar = ({ isOpen, onClose }) => {
+const Sidebar = ({ isOpen, onClose, onTypeSelect }) => {
   const [hoveredCode, setHoveredCode] = useState(false);
   const [hoveredRank, setHoveredRank] = useState(false);
 
+  const handleClick = (type) => {
+    onTypeSelect(type);
+  };
+
+  console.log("✅ Sidebar 렌더링됨 - isOpen:", isOpen);
+
   return (
-    <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+    <div className={`sidebar ${isOpen ? "open" : ""}`}>
       <button className="close-btn" onClick={onClose}>×</button>
       <h2 className="sidebar-title">UsCoding</h2>
 
       <ul>
-        {/* 코드별 리뷰 */}
         <li
           className="dropdown"
           onMouseEnter={() => setHoveredCode(true)}
           onMouseLeave={() => setHoveredCode(false)}
         >
           <span className="dropdown-title">코드별 리뷰</span>
-          <ul className={`dropdown-menu ${hoveredCode ? 'show' : ''}`}>
-            <li><a href="/CodePage">C++</a></li>
-            <li><a href="/CodePage">Python</a></li>
-            <li><a href="/CodePage">Java</a></li>
+          <ul className={`dropdown-menu ${hoveredCode ? "show" : ""}`}>
+            <li><span onClick={() => handleClick("cpp")}>C++</span></li>
+            <li><span onClick={() => handleClick("python")}>Python</span></li>
+            <li><span onClick={() => handleClick("java")}>Java</span></li>
           </ul>
         </li>
-
-        {/* 좋아요 순위 */}
-        <li
-          className="dropdown"
-          onMouseEnter={() => setHoveredRank(true)}
-          onMouseLeave={() => setHoveredRank(false)}
-        >
-          <span className="dropdown-title">좋아요 순위</span>
-          <ul className={`dropdown-menu ${hoveredRank ? 'show' : ''}`}>
-            <li><a href="/LikeRanking">전체 랭킹</a></li>
-            <li><a href="/LikeRanking">이번 주 랭킹</a></li>
-            <li><a href="/LikeRanking">오늘의 랭킹</a></li>
-          </ul>
-        </li>
-        <br></br>
-        추후추가예정
       </ul>
     </div>
   );
