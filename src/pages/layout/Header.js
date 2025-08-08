@@ -2,18 +2,18 @@ import { useState } from 'react';
 import { Link ,useNavigate} from 'react-router-dom';
 import Sidebar from './Sidebar';
 import './Header.css';
+import { useCodeContext} from '../../hooks/codeContext';
 
 const Header = ({ scrollIntoView, scrollIntoUse, scrollIntoWhy }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+ 
   const navigate = useNavigate();
-
-
+  const { openSidebar } = useCodeContext();
 
   return (
     <>
       <header className="Header">
         <div className="header_left">
-          <button className="menu-btn" onClick={() => setSidebarOpen(true)}>☰</button>
+          <button className="menu-btn" onClick={openSidebar}>☰</button>
           <h1>
             <Link to="/" className="logo-link">UsCoding</Link>
           </h1>
@@ -35,7 +35,7 @@ const Header = ({ scrollIntoView, scrollIntoUse, scrollIntoWhy }) => {
           
         </div>
       </header>
-      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      
     </>
   );
 };
