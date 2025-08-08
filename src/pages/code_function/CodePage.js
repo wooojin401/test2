@@ -1,13 +1,10 @@
 import { useState } from "react";
 import CodeItem from "./CodeItem";
 import "./CodePage.css";
+import { useCodeContext} from "../../hooks/codeContext"
+
 const CodeListPage = () => {
-  const [selectedType, setSelectedType] = useState("All");
-
-  const handleTypeChange = (e) => {
-    setSelectedType(e.target.value);
-  };
-
+  const { selectedType, handleTypeChange } = useCodeContext();
 
   const codeItems = [
     { id: 1, image: "/fifa.JPG", title: "C++ 예제", type: "cpp", likes : 34 },
@@ -23,13 +20,13 @@ const CodeListPage = () => {
   return (
     <div className="codePage">
         <h1>코드 페이지</h1>
-      <select id="codeKind" onChange={handleTypeChange}>
+      <select id="codeKind" value = {selectedType} onChange={(e)=> handleTypeChange(e.target.value)}>
         <option value="All">All</option>
         <option value="cpp">C++</option>
         <option value="python">Python</option>
         <option value="java">Java</option>
       </select>
-
+    
       {/* 필터링된 항목만 렌더링 */}
       <div className="codeList">
         {filteredItems.map(item => (

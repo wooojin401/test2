@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import './Sidebar.css';
+import { useCodeContext} from '../../hooks/codeContext';
+import { Link } from 'react-router-dom'; 
 
-const Sidebar = ({ isOpen, onClose }) => {
+const Sidebar = () => {
   const [hoveredCode, setHoveredCode] = useState(false);
   const [hoveredRank, setHoveredRank] = useState(false);
+  const { sidebarOpen,handleTypeChange ,closeSidebar } = useCodeContext();
 
   return (
-    <div className={`sidebar ${isOpen ? 'open' : ''}`}>
-      <button className="close-btn" onClick={onClose}>×</button>
+    <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+      <button className="close-btn" onClick={closeSidebar}>×</button>
       <h2 className="sidebar-title">UsCoding</h2>
 
       <ul>
@@ -19,9 +22,10 @@ const Sidebar = ({ isOpen, onClose }) => {
         >
           <span className="dropdown-title">코드별 리뷰</span>
           <ul className={`dropdown-menu ${hoveredCode ? 'show' : ''}`}>
-            <li><a href="/CodePage">C++</a></li>
-            <li><a href="/CodePage">Python</a></li>
-            <li><a href="/CodePage">Java</a></li>
+            <li><Link to="/CodePage" onClick={() => handleTypeChange("All")}>All</Link></li>
+            <li><Link to="/CodePage" onClick={() => handleTypeChange("cpp")}>C++</Link></li>
+            <li><Link to="/CodePage" onClick={() => handleTypeChange("python")}> Python </Link> </li>
+            <li><Link to="/CodePage" onClick={() => handleTypeChange("java")}>Java</Link></li>
           </ul>
         </li>
 

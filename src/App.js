@@ -6,12 +6,12 @@ import Detail from "./pages/Detail";
 import Edit from "./pages/Edit";
 import Header from "./pages/layout/Header";
 import Footer from "./pages/layout/Footer";
-import Sidebar from "./pages/layout/Sidebar";
 import CodePage from "./pages/code_function/CodePage";
 import LikeRanking from "./pages/LikeRanking";
-
+import { CodeProvider } from "./hooks/codeContext";
 import './App.css'; 
 import Login from "./pages/Login";
+import Sidebar from "./pages/layout/Sidebar";
 
 function App() {
   const aboutRef = useRef(null);
@@ -34,8 +34,13 @@ function App() {
     }
   };
   return (
-    <BrowserRouter>
+    
+   
+<BrowserRouter>
+ <CodeProvider> 
+      
       <Header scrollIntoView = {scrollIntoView} scrollIntoUse = {scrollIntoUse} scrollIntoWhy = {scrollIntoWhy} />
+      <Sidebar />
       <div className="main_layout">
         <div className="content">
           <Routes>
@@ -52,7 +57,11 @@ function App() {
       </div>
 
       <Footer />
+     </CodeProvider>
     </BrowserRouter>
+  
+  
+    
   );
 }
 
