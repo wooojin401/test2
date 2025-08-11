@@ -29,7 +29,7 @@ const Header = ({ scrollIntoView, scrollIntoUse, scrollIntoWhy }) => {
         <div className="header-login-container">
           <button className="login-btn" onClick={() => navigate('./login')}>Login</button>
           <span className="divider">|</span>
-          <button className="signup-btn" onClick={() => alert('회원가입 기능은 아직 구현되지 않았습니다.')}>Sign Up</button>
+          <button className="signup-btn" onClick={() => navigate('./register')}>Sign Up</button>
         </div>
           <Link to="/Write">write</Link>
           
