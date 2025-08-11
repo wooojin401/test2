@@ -27,9 +27,9 @@ const Login = () => {
 
   return (
     <div className="login-wrapper">
-    
       <form className="login-container" onSubmit={handleLogin}>
         <h2>UsCoding</h2> 
+
         <input
           type="email"
           placeholder="이메일"
@@ -44,12 +44,20 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-         <Link to ="/" className="forget-id-link">아이디를 잊으셨나요?</Link>
-        <Link to ="/" className="forget-password-link">비밀번호를 잊으셨나요?</Link>
+
+        {/* 링크 영역 */}
+        <div className="login-links">
+          <Link to="/register" className="register-link">회원가입</Link>
+          <div className="right-links">
+            <Link to="/" className="forget-id-link">아이디를 잊으셨나요?</Link>
+            <Link to="/" className="forget-password-link">비밀번호를 잊으셨나요?</Link>
+          </div>
+        </div>
+
         <button type="submit">로그인</button>
       </form>
     </div>
-  );
+  );  
 };
 
 export default Login;

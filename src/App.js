@@ -12,6 +12,7 @@ import { CodeProvider } from "./hooks/codeContext";
 import './App.css'; 
 import Login from "./pages/Login";
 import Sidebar from "./pages/layout/Sidebar";
+import Register from "./pages/Register"; 
 
 function App() {
   const aboutRef = useRef(null);
@@ -49,6 +50,7 @@ function App() {
             <Route path="/write" element={<Write />} />
             <Route path="/detail" element={<Detail />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/edit/:id" element={<Edit />} />
             <Route path="/CodePage" element={<CodePage/>}/>
             <Route path="/LikeRanking" element={<LikeRanking />} />
