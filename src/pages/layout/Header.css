@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 60px;
-  border:1px solid gray;
+  border:none;;
   color: black;
   display: flex;
   align-items: center;
@@ -59,6 +59,10 @@
 .logo-link {
   text-decoration: none;
   color: black; 
+  font-size: 40px;           /* 키움 */
+  font-weight: 800;
+  margin: 8px 0 20px;
+  letter-spacing: 0.5px;
 }
 
 .logo-link:hover {
@@ -85,7 +89,7 @@
 }
 .highlight {
   color:black;
-  font-size: 20px; 
+  font-size: 26px; 
 }
 
 .header-login-container {

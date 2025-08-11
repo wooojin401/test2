@@ -5,6 +5,29 @@
     display: block;
     margin: auto;
 }
+/* 컨테이너 기본 */
+.about-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.about-container.loaded .reveal {
+  animation: fadeUp .6s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 #creator{
     display: inline;
@@ -24,7 +47,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: rgba(177, 168, 128, 0.343);
+    border-radius: 10px;
+    background-color: rgba(171, 241, 242, 0.343);
 }
 .why-use {
     display: flex;

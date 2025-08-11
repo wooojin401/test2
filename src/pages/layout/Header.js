@@ -15,7 +15,7 @@ const Header = ({ scrollIntoView, scrollIntoUse, scrollIntoWhy }) => {
         <div className="header_left">
           <button className="menu-btn" onClick={openSidebar}>☰</button>
           <h1>
-            <Link to="/" className="logo-link">UsCoding</Link>
+            <Link to="/" className="logo-link">🍀UsCoding</Link>
           </h1>
         </div>
 
