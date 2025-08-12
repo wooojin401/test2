@@ -79,17 +79,17 @@
 .header_center a {
   color: #222;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 20px;
 }
 .intro-link {
   text-decoration: none;
   color: inherit;
-  font-size: 24px;
+  font-size:300px;
   font-weight: bold;
 }
 .highlight {
   color:black;
-  font-size: 26px; 
+  font-size: 30px; 
 }
 
 .header-login-container {
