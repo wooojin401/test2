@@ -1,61 +1,180 @@
-#writePage{
-    border: 0.3rem dashed rgba(33, 80, 85, 0.797);
-    width: 60%;
-    height: 60%;
-    display: block;
-    margin: auto;
+/* ========== 공통 ========== */
+* { box-sizing: border-box; }
+img { max-width: 100%; height: auto; display: block; }
+
+.about-container { width: 100%; }
+
+/* 등장 애니메이션 */
+.reveal { opacity: 0; transform: translateY(14px); }
+.about-container.loaded .reveal { animation: fadeUp .6s ease forwards; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+
+.hero {
+  background: #f8fafc;
+  padding: 60px 0;
+  border-bottom: 1px solid #f8fafc;
+
+  width: 100vw;                               /* 화면 너비만큼 */
+  margin-left: calc(50% - 50vw);                     /* 왼쪽으로 빼내기 */
+  margin-right: calc(50% - 50vw);                    /* 오른쪽도 맞춤 */
+  position: relative; /* 일부 레이아웃에서 필요 */
 }
-/* 컨테이너 기본 */
-.about-container {
-  max-width: 960px;
+.hero__inner {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 32px 20px;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(14px);
-}
-
-.about-container.loaded .reveal {
-  animation: fadeUp .6s ease forwards;
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: center;
 }
 
 
-#creator{
-    display: inline;
-    color : rgba(127, 47, 4, 0.477);
-    padding-left: 5%;
-    padding-right: 66%;
-}
-    
-#usCoding{
-    font-weight: bold; 
-    font-size: 1.5rem; 
-    color: rgba(42, 229, 9, 0.83)
-}    
 
-.about-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 10px;
-    background-color: rgba(147, 173, 173, 0.343);
+.hero__left h1 {
+  margin: 0 0 16px;
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1.15;
+  color: #475569;
 }
-.why-use {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    
-    width: 60%;
-    height: 60%;
+.hero__left p { margin: 10px 0; color: #64748b; line-height: 1.7; }
+
+.hero__right { display: flex; justify-content: flex-end; }
+.hero__right img { width: min(560px, 90%); object-fit: cover; }
+
+/* ========== HOW (가운데 설명 + 카드 3개) ========== */
+.how { background: #fff; }
+.how__wrap{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.how__text{
+  text-align: center;
+  margin-bottom: 36px;
+}
+.how__text h2{
+  margin: 0 0 12px;
+  font-size: clamp(20px, 3vw, 32px);
+  color:#334155;
+}
+.how__text p{
+  margin: 6px 0;
+  color:#475569;
+  line-height: 1.6;
+}
+
+.how__grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.how__card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.how__thumb{
+  width: 100%;
+  max-width: 320px;        /* 카드 최대 크기 */
+  aspect-ratio: 1 / 1;     /* 정사각형 */
+  border-radius: 24px;
+  border: 3px solid #0f172a;
+  overflow: hidden;
+  background: #f8fafc;
+  display: grid;
+  place-items: center;
+}
+.how__thumb img{
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+}
+
+.how__card figcaption{
+  font-weight: 600;
+  color:#334155;
+  position: relative;
+  padding-bottom: 6px;
+}
+.how__card figcaption::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:0;
+  width: 80px;
+  height: 3px;
+  background:#0f172a;
+  border-radius: 999px;
+}
+
+/* ========== WHY (카드 3개) ========== */
+.why{ background: #f8fafc; }
+.why__wrap{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 24px;
+  text-align: center;
+}
+.why__wrap h2{
+  font-size: clamp(24px, 3vw, 36px);
+  margin-bottom: 16px;
+  color: #334155;
+}
+.why__desc{
+  max-width: 720px;
+  margin: 0 auto 48px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #475569;
+}
+
+.why__grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.why__card{
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 20px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.why__card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.why__icon{ font-size: 40px; margin-bottom: 16px; }
+.why__card h3{ font-size: 1.25rem; margin-bottom: 10px; color: #0f172a; }
+.why__card p{ font-size: .95rem; color: #475569; line-height: 1.5; }
+
+/* ========== CLOSING ========== */
+.closing { background: #fff; }
+.closing .reveal { /* 그대로 애니메이션 사용 */ }
+.closing__image{
+  display: block;
+  margin: 16px auto;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* ========== 반응형 ========== */
+@media (max-width: 1024px){
+  .hero__inner { grid-template-columns: 1fr; }
+  .hero__right { justify-content: center; }
+
+  .how__grid, .why__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px){
+  .how__grid, .why__grid { grid-template-columns: 1fr; }
+  .how__thumb{ max-width: 420px; }
 }
