@@ -23,7 +23,7 @@ const Login = () => {
         withCredentials: true 
       }
     );
-      console.log('로그인 성공:', res.data);
+      console.log('로그인 성공입니다.:', res.data);
       console.log(res.status);
       alert('로그인 성공!');
       // 이후 토큰 저장 or 페이지 이동 등 처리
