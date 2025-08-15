@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Write from "./pages/Write";
@@ -8,17 +8,21 @@ import Header from "./pages/layout/Header";
 import Footer from "./pages/layout/Footer";
 import CodePage from "./pages/code_function/CodePage";
 import LikeRanking from "./pages/LikeRanking";
-import { CodeProvider } from "./hooks/codeContext";
+import { CodeProvider, useCodeContext } from "./hooks/codeContext";
 import './App.css'; 
 import Login from "./pages/Login";
 import Sidebar from "./pages/layout/Sidebar";
 import Register from "./pages/Register"; 
+import axios from "axios";
 
 function App() {
   const aboutRef = useRef(null);
    const howUseRef = useRef(null);
    const whyUseRef = useRef(null);
 
+
+  
+  
    const scrollIntoWhy = () => {
     if (whyUseRef.current){
       whyUseRef.current.scrollIntoView({behavior: 'smooth'});

@@ -7,7 +7,7 @@ import { useCodeContext} from '../../hooks/codeContext';
 const Header = ({ scrollIntoView, scrollIntoUse, scrollIntoWhy }) => {
  
   const navigate = useNavigate();
-  const { openSidebar } = useCodeContext();
+  const { openSidebar , userInfo, setUserInfo} = useCodeContext();
 
   return (
     <>
@@ -25,15 +25,30 @@ const Header = ({ scrollIntoView, scrollIntoUse, scrollIntoWhy }) => {
           <Link to="/" className="intro-link" onClick={scrollIntoWhy}><span className="highlight">W</span>hy to use?</Link>
         </div>
 
+        {userInfo == null && (
         <div className="header_right">
         <div className="header-login-container">
           <button className="login-btn" onClick={() => navigate('./login')}>Login</button>
           <span className="divider">|</span>
           <button className="signup-btn" onClick={() => navigate('./register')}>Sign Up</button>
         </div>
+     
           <Link to="/Write">write</Link>
           
         </div>
+           )}
+
+        {userInfo !== null && (
+          <div className="header_right">
+            <span className="user-greeting">Welcome, {userInfo?.nickname ?? userInfo?.email}!</span>
+            <button className="logout-btn" onClick={() => {
+              // 로그아웃 처리
+              setUserInfo(null);
+              console.log("로그아웃 되셨습니다. " + userInfo);
+              navigate('/login');
+            }}>Logout</button>
+          </div>
+        )}
       </header>
       
     </>
