@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import "./CodeItem.css";
+import { useCodeContext } from "../../hooks/codeContext";
 
 const CodeItem = ({ likes, image, title, onTypeChange }) => {
+  
+
+  
   const navigate = useNavigate();
   const [type, setType] = useState("cpp");
 
@@ -19,9 +23,12 @@ const CodeItem = ({ likes, image, title, onTypeChange }) => {
 
   return (
     <div className="codeSpaceItem" data-type={type} onClick={() => navigate('/detail')}>
-      <img src={image} alt="Code Thumbnail" className="CodeThumbnail" />
+      {/* <img src={image} alt="Code Thumbnail" className="CodeThumbnail" /> */}
+
       <div className="codeContent">
         <span className="codeTitle">{title}</span>
+        <span className="codeTitle">{title}</span>
+        
         <span className="codeMeta">{formattedDate} | {author} | ❤️{likes}</span>
       </div>
     </div>

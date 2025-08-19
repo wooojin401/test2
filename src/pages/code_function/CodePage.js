@@ -1,21 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CodeItem from "./CodeItem";
 import "./CodePage.css";
 import { useCodeContext} from "../../hooks/codeContext"
+import axios from "axios";
 
 const CodeListPage = () => {
-  const { selectedType, handleTypeChange } = useCodeContext();
+  const { selectedType, handleTypeChange, posts,loading, err, setPosts, setErr, setLoading } = useCodeContext();
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await axios.get("http://localhost:8080/api/posts");
+        setPosts(res.data);       
+      } catch (e) {
+        setErr(e.message);
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, []);
 
-  const codeItems = [
-    { id: 1, image: "/fifa.JPG", title: "C++ 예제", type: "cpp", likes : 34 },
-    { id: 2, image: "/logo.png", title: "Java 예제", type: "java", likes: 28 },
-    { id: 3, image: "/logo192.png", title: "Python 예제", type: "python", likes: 22 }
-  ];
+   if (loading) return <div>로딩중…</div>;
+  if (err) return <div>에러: {err}</div>;
 
-  // 필터링
-  const filteredItems = selectedType === "All"
-    ? codeItems
-    : codeItems.filter(item => item.type === selectedType);
+  const codeItems = posts.map(post => ({
+    id: post.id,
+    type: post.category,
+    code: post.code,
+    content: post.content,
+    date: post.date,
+    likes: post.likes,
+    title: post.title,
+    user_id: post.user_id,
+  }));
+
+  
+  // const filteredItems = selectedType === "All"
+  //   ? codeItems
+  //   : codeItems.filter(item => item.type === selectedType);
 
   return (
     <div className="codePage">
@@ -29,10 +50,9 @@ const CodeListPage = () => {
     
       {/* 필터링된 항목만 렌더링 */}
       <div className="codeList">
-        {filteredItems.map(item => (
+        {codeItems.map(item => (
           <CodeItem
             key={item.id}
-            image={item.image}
             title={item.title}
             likes={item.likes}
             type={item.type}
