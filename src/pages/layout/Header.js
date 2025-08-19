@@ -32,21 +32,20 @@ const Header = ({ scrollIntoView, scrollIntoUse, scrollIntoWhy }) => {
           <span className="divider">|</span>
           <button className="signup-btn" onClick={() => navigate('./register')}>Sign Up</button>
         </div>
-     
-          <Link to="/Write">write</Link>
           
         </div>
            )}
 
         {userInfo !== null && (
           <div className="header_right">
-            <span className="user-greeting">Welcome, {userInfo?.nickname ?? userInfo?.email}!</span>
-            <button className="logout-btn" onClick={() => {
+            <span className="user-greeting">Welcome, {userInfo?.id ?? userInfo?.nickname ?? userInfo?.email}!</span>
+            <button className="login-btn" onClick={() => {
               // 로그아웃 처리
               setUserInfo(null);
               console.log("로그아웃 되셨습니다. " + userInfo);
               navigate('/login');
             }}>Logout</button>
+            <button className="signup-btn" onClick={() => navigate('/write')}>Write</button>
           </div>
         )}
       </header>

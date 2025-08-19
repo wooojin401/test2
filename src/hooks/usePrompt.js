@@ -1,28 +1,49 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { UNSAFE_NavigationContext as NavigationContext } from 'react-router-dom';
 
 export function usePrompt(message, when) {
-  const navigator = useContext(NavigationContext).navigator;
+  const navigationContext = useContext(NavigationContext);
+  const navigator = navigationContext && navigationContext.navigator;
+
+  // 최신 값 보관
+  const enabledRef = useRef(when);
+  useEffect(() => {
+    enabledRef.current = when;
+  }, [when]);
 
   useEffect(() => {
-    if (!when) return;
+    if (!navigator) return;
 
-    const push = navigator.push;
-    const replace = navigator.replace;
+    // 원본 백업
+    const origPush = navigator.push;
+    const origReplace = navigator.replace;
+    const origGo = navigator.go;
 
-    const confirmAndRun = (method) => (...args) => {
-      const shouldProceed = window.confirm(message);
-      if (shouldProceed) {
-        method(...args);
-      }
+    // 호출 시점에 enabledRef로 판단
+    const wrap = (method) => (...args) => {
+      if (!enabledRef.current) return method(...args);
+      const ok = window.confirm(message);
+      if (ok) method(...args);
     };
 
-    navigator.push = confirmAndRun(push);
-    navigator.replace = confirmAndRun(replace);
+    navigator.push = wrap(origPush);
+    navigator.replace = wrap(origReplace);
+    if (typeof origGo === 'function') navigator.go = wrap(origGo);
+
+    // 새로고침/탭 닫기
+    const handleBeforeUnload = (e) => {
+      if (!enabledRef.current) return;
+      e.preventDefault();
+      e.returnValue = message;
+      return message;
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
 
     return () => {
-      navigator.push = push;
-      navigator.replace = replace;
+      navigator.push = origPush;
+      navigator.replace = origReplace;
+      if (typeof origGo === 'function') navigator.go = origGo;
+      window.removeEventListener('beforeunload', handleBeforeUnload);
     };
-  }, [navigator, message, when]);
+  }, [navigator, message]);
 }
