@@ -1,7 +1,29 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Detail.css';
+import { useCodeContext } from '../hooks/codeContext';
+
+import { useParams } from 'react-router-dom';
 
 function Detail() {
+
+  const { posts } = useCodeContext();
+  const { id } = useParams();
+  const getDetail = (id) => {
+    const post = posts.find((post) => post.id === parseInt(id));
+    if(!post) return null;  
+
+    return {
+      id:post.id,
+      title:post.title,
+      author:post.author,
+      date:post.date,
+      category:post.category,
+      content:post.content,
+      code:post.code,
+      likes:post.likes
+    };
+  };
+  const detail = getDetail(id);
   const mockData = {
     id:1,
     title: '코드 제목 예시',
@@ -32,14 +54,14 @@ likes:42
 
   return (
     <div className="detail-container">
-      <h1>{mockData.title}</h1>
+      <h1>{detail.title}</h1>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-  <span>👨‍💻 {mockData.author}</span>
-  <span>📆 {mockData.date} ❤️ {mockData.likes}</span>
+  <span>👨‍💻 {detail.author}</span>
+  <span>📆 {detail.date} ❤️ {detail.likes}</span>
 </div>
 
-      <pre className="detail-code-block">{mockData.code}</pre>
-      <div className="detail-description">{mockData.content}</div>
+      <pre className="detail-code-block">{detail.code}</pre>
+      <div className="detail-description">{detail.content}</div>
 
       <div className="detail-comments">
         <h3>댓글</h3>
