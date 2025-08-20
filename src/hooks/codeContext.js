@@ -7,6 +7,7 @@ export const CodeProvider = ({ children }) => {
   const [selectedType, setSelectedType] = useState("All");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
+  const [posts, setPosts] = useState([]);
   const handleTypeChange = (type) => {
     setSelectedType(type);
   };
@@ -15,7 +16,7 @@ export const CodeProvider = ({ children }) => {
 
   return (
     <CodeContext.Provider value={{ selectedType, handleTypeChange, 
-    sidebarOpen, openSidebar, closeSidebar , userInfo,setUserInfo}}>
+    sidebarOpen, openSidebar, closeSidebar , userInfo,setUserInfo, posts, setPosts  }}>
       {children}
     </CodeContext.Provider>
   );

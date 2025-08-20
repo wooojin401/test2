@@ -52,7 +52,7 @@ function App() {
             
             <Route path="/" element={<Home aboutRef = {aboutRef} howUseRef = {howUseRef} whyUseRef={whyUseRef} />} />
             <Route path="/write" element={<Write />} />
-            <Route path="/detail" element={<Detail />} />
+            <Route path="/detail/:id" element={<Detail />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/edit/:id" element={<Edit />} />
