@@ -51,13 +51,17 @@ likes:42
       date: '2025-08-06'
     }
   ]);
-
+  const detailPlus = ()=>{
+   
+      detail.likes = detail.likes + 1
+    
+  }
   return (
     <div className="detail-container">
       <h1>{detail.title}</h1>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
   <span>👨‍💻 {detail.author}</span>
-  <span>📆 {detail.date} ❤️ {detail.likes}</span>
+  <span>📆 {detail.date} <button onClick = {() => detailPlus()}>❤️ {detail.likes}</button></span>
 </div>
 
       <pre className="detail-code-block">{detail.code}</pre>

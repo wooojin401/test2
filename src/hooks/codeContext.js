@@ -10,6 +10,7 @@ export const CodeProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
   const handleTypeChange = (type) => {
     setSelectedType(type);
+    console.log("Selected type changed to:", type);
   };
   const openSidebar = () => setSidebarOpen(true);
   const closeSidebar = () => setSidebarOpen(false);
