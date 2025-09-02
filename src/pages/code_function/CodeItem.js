@@ -9,7 +9,7 @@ const CodeItem = ({ onClick, post }) => {
   //const { selectedType, handleTypeChange , posts} = useCodeContext();
   const { id, title, likes, category, date, user } = post;
 
-  console.log("CodeItem id:", id);
+
 
 
 

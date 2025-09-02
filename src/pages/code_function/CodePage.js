@@ -45,9 +45,9 @@ const CodePage = () => {
         <h1>코드 페이지</h1>
       <select id="codeKind" value = {selectedType} onChange={(e)=> handleTypeChange(e.target.value)}>
         <option value="All">All</option>
-        <option value="cpp">C++</option>
-        <option value="python">Python</option>
-        <option value="java">Java</option>
+        <option value="C++">C++</option>
+        <option value="Python">Python</option>
+        <option value="Java">Java</option>
       </select>
     
       {/* 필터링된 항목만 렌더링 */}
