@@ -10,7 +10,8 @@ function Detail() {
   const { id } = useParams();
   const getDetail = (id) => {
     const post = posts.find((post) => post.id === parseInt(id));
-    if(!post) return null;  
+    console.log("post id:", post.id);
+    if(!post) return 0;  
 
     return {
       id:post.id,
