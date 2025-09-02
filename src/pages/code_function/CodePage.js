@@ -19,7 +19,7 @@ const CodePage = () => {
       try {
         const res = await axios.get("http://localhost:8080/api/getPost");
         setPosts(res.data);   // ✅ 서버가 보낸 JSON은 res.data 안에 들어있음
-        console.log(res.data);
+        console.log(res.data.category);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -35,10 +35,9 @@ const CodePage = () => {
     { id: 3, image: "/logo192.png", title: "Python 예제", type: "python", likes: 22 }
   ];
 
-  // 필터링
-  const filteredItems = selectedType === "All"
-    ? posts
-    : posts.filter(post => post.category === selectedType);
+  const filteredItems = selectedType === "All" 
+  ? posts
+  : posts.filter(post => post.category === selectedType)
 
   return (
     <div className="codePage">

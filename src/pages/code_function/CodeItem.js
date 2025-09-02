@@ -9,14 +9,16 @@ const CodeItem = ({ onClick, post }) => {
   //const { selectedType, handleTypeChange , posts} = useCodeContext();
   const { id, title, likes, category, date, user } = post;
 
-  console.log("CodeItem id:", id);
 
+ const print = () => {
+    console.log("CodeItem id:", id);
+    console.log("CodeItem category:", category);
+  };
 
 
   return (
-  
-   
-      <div className="codeSpaceItem" category={category} onClick = {()=>{onClick(id)}} >
+    
+      <div className="codeSpaceItem" category={category} onClick = {()=>{onClick(id); print();}} >
         {/* <img src={image} alt="Code Thumbnail" className="CodeThumbnail" /> */}
         <div className="codeNumber"><h1>{id}&nbsp;&nbsp;</h1></div>
         <div className="codeContent">
@@ -24,8 +26,6 @@ const CodeItem = ({ onClick, post }) => {
           <span className="codeMeta">{date} | {user.nickname} | ❤️{likes}</span>
         </div>
       </div>
-  
-    
     
   );
 };
